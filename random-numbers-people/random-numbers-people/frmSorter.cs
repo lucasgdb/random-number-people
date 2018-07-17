@@ -49,7 +49,7 @@ namespace random_numbers
 
         private void picGitHub_Click(object sender, System.EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://github.com/");
+            System.Diagnostics.Process.Start("https://github.com/LucasNaja/random-number-people");
         }
 
         private void cbSelect_SelectedIndexChanged(object sender, System.EventArgs e)
