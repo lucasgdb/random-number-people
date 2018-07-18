@@ -9,9 +9,10 @@ namespace random_numbers
             InitializeComponent();
             lblBCurrent.Text = "Build atual: " + BCurrent;
             lblCBuild.Text = "Build atual: " + BCurrent;
+            SelectPanel(pSorter);
         }
 
-        int BCurrent = 1;
+        int BCurrent = 2;
         string lastSorter = null;
         int amountPeople = 0;
 
@@ -19,9 +20,10 @@ namespace random_numbers
         {
             System.Windows.Forms.Panel[] panels = { pSorter, pUpdate, pAbout };
             for (int i = 0; i < panels.Length; i++)
-                if (panels[i] != panel && panels[i].Visible == true)
+                if (panels[i] == panel && !panel.Visible)
+                    panel.Visible = true;
+                else if (panels[i] != panel && panels[i].Visible == true)
                     panels[i].Visible = false;
-            panel.Visible = true;
             panel.Select();
         }
 
@@ -177,7 +179,7 @@ namespace random_numbers
         {
             if (lastSorter != null)
                 System.Windows.Forms.MessageBox.Show("Último sorteio: " + lastSorter, "Sorteio", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
-            else System.Windows.Forms.MessageBox.Show("Nenhum sorteio encontrado!", "Sorteio", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            else System.Windows.Forms.MessageBox.Show("Nenhum sorteio foi realizado ainda!", "Sorteio", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             pSorter.Select();
         }
 
@@ -243,7 +245,7 @@ namespace random_numbers
                         {
                             lblStatus.Text = "Status: Há nova versão disponível para baixar!";
                             btnUptoDate.Text = "Baixar atualizações";
-                            tip.SetToolTip(btnUptoDate, "Baixar atualizações");
+                            tip.SetToolTip(btnUptoDate, "Baixar atualização de programa");
                         }
                         else
                             lblStatus.Text = "Status: Não há nova versão disponível para baixar!";
@@ -276,7 +278,10 @@ namespace random_numbers
                                 try
                                 {
                                     picGif.Visible = false;
-                                    lblStatus.Text = "Status: Nova versão baixada com sucesso!";
+                                    lblStatus.Text = "Status: Nova versão baixada com sucesso!\nFeche e extraia o novo programa na pasta atual.";
+                                    lblStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+                                    lblStatus.Click += (sss, eeee) => this.Close();
+                                    tip.SetToolTip(lblStatus, "Clique aqui");
                                 }
                                 catch
                                 {
@@ -288,7 +293,7 @@ namespace random_numbers
                         {
                             lblStatus.Text = "Status: Não há nova versão disponível para baixar!";
                             btnUptoDate.Enabled = true;
-                            tip.SetToolTip(btnUptoDate, "Verificar atualizações");
+                            tip.SetToolTip(btnUptoDate, "Verificar atualização de programa");
                             picGif.Visible = false;
                             btnUptoDate.Text = "Verificar atualizações";
                         }
@@ -321,6 +326,29 @@ namespace random_numbers
         private void tsmiClearAll2_Click(object sender, System.EventArgs e)
         {
             lvGenNumbers.Items.Clear();
+        }
+
+        private void btnSave_Click(object sender, System.EventArgs e)
+        {
+            if (lastSorter != null)
+            {
+                int i = 1;
+                while (System.IO.File.Exists(System.Windows.Forms.Application.StartupPath + "\\Sorteio" + i + ".txt"))
+                    i++;
+                try
+                {
+                    System.IO.StreamWriter sw = new System.IO.StreamWriter(System.Windows.Forms.Application.StartupPath + "\\Sorteio" + i + ".txt");
+                    sw.Write("Sorteio realizado em " + System.DateTime.Now + ", resultado: " + lastSorter);
+                    sw.Close();
+                    System.Windows.Forms.MessageBox.Show("Sorteio salvo com sucesso! Salvo em: " + System.Windows.Forms.Application.StartupPath + "\\Sorteio" + i + ".txt", "Sorteio", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Information);
+                }
+                catch
+                {
+                    System.Windows.Forms.MessageBox.Show("Algum erro ocorreu! Por favor, contate o desenvolvedor em Sobre.", "Erro", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                }
+            }
+            else System.Windows.Forms.MessageBox.Show("Nenhum sorteio foi realizado ainda!", "Erro", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            pSorter.Select();
         }
     }
 }

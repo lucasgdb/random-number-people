@@ -7,18 +7,18 @@
 - **Sistema de atualização integrado**
 - **Gratuito e livre de propagandas**
 
-## Scan: [Clique aqui](https://www.virustotal.com/#/file/7c8b49470dd2e97c7446f80c670da4b6355d36545d2d67f6049d0888b05bef06/detection)
+## Scan: [Clique aqui](https://www.virustotal.com/#/file/50f175319e441a569331eb4e7693a39989467a2a1572d1eb7446f3da28564c8a/detection)
 - **Livre de Vírus e Trojans**
 - **Código limpo**
 
 ## Download: [Clique aqui](https://drive.google.com/uc?authuser=0&id=1BCBbrqokLOGTFTWM1qEWOXx49jHfu4_d&export=download)
 - **Versão atual: 1.0**
-- **Build atual: 1**
+- **Build atual: 2**
 
 ## Imagens
 
-<img align="center" src="https://i.imgur.com/LjskYOx.png"/>
+<img align="center" src="https://i.imgur.com/uBmelXw.png"/>
 
-<img align="center" src="https://i.imgur.com/vlF0wKM.png"/>
+<img align="center" src="https://i.imgur.com/vWN37Ss.png"/>
 
-<img align="center" src="https://i.imgur.com/s41Fpph.png"/>
+<img align="center" src="https://i.imgur.com/Gy7P0o5.png"/>

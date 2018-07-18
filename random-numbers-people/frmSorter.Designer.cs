@@ -33,6 +33,7 @@
             this.pSorter = new System.Windows.Forms.Panel();
             this.cbSelect = new System.Windows.Forms.ComboBox();
             this.pNumber = new System.Windows.Forms.Panel();
+            this.btnClear2 = new System.Windows.Forms.Button();
             this.rbRandom = new System.Windows.Forms.RadioButton();
             this.rbDescendent = new System.Windows.Forms.RadioButton();
             this.rbAscendent = new System.Windows.Forms.RadioButton();
@@ -44,6 +45,8 @@
             this.lblAmount = new System.Windows.Forms.Label();
             this.lvGenNumbers = new System.Windows.Forms.ListView();
             this.Numbers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmsOptions2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiClearAll2 = new System.Windows.Forms.ToolStripMenuItem();
             this.pPeople = new System.Windows.Forms.Panel();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnClearLast = new System.Windows.Forms.Button();
@@ -76,14 +79,13 @@
             this.lblCBuild = new System.Windows.Forms.Label();
             this.lblCVersion = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnClear2 = new System.Windows.Forms.Button();
-            this.cmsOptions2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiClearAll2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pSorter.SuspendLayout();
             this.pNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nAmount)).BeginInit();
+            this.cmsOptions2.SuspendLayout();
             this.pPeople.SuspendLayout();
             this.cmsOptions.SuspendLayout();
             this.pAbout.SuspendLayout();
@@ -91,7 +93,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.pUpdate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGif)).BeginInit();
-            this.cmsOptions2.SuspendLayout();
             this.SuspendLayout();
             // 
             // pSorter
@@ -102,16 +103,17 @@
             this.pSorter.BackColor = System.Drawing.Color.DarkOrange;
             this.pSorter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pSorter.Controls.Add(this.cbSelect);
-            this.pSorter.Controls.Add(this.pNumber);
             this.pSorter.Controls.Add(this.pPeople);
+            this.pSorter.Controls.Add(this.pNumber);
             this.pSorter.Location = new System.Drawing.Point(119, -1);
             this.pSorter.Name = "pSorter";
             this.pSorter.Size = new System.Drawing.Size(666, 419);
-            this.pSorter.TabIndex = 2;
+            this.pSorter.TabIndex = 0;
             this.pSorter.Click += new System.EventHandler(this.pSorter_Click);
             // 
             // cbSelect
             // 
+            this.cbSelect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbSelect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSelect.FormattingEnabled = true;
@@ -126,7 +128,7 @@
             // 
             // pNumber
             // 
-            this.pNumber.BackColor = System.Drawing.Color.Orange;
+            this.pNumber.BackColor = System.Drawing.Color.DarkOrange;
             this.pNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pNumber.Controls.Add(this.btnClear2);
             this.pNumber.Controls.Add(this.rbRandom);
@@ -142,8 +144,24 @@
             this.pNumber.Location = new System.Drawing.Point(10, 39);
             this.pNumber.Name = "pNumber";
             this.pNumber.Size = new System.Drawing.Size(644, 371);
-            this.pNumber.TabIndex = 1;
+            this.pNumber.TabIndex = 0;
             this.pNumber.Click += new System.EventHandler(this.pNumber_Click);
+            // 
+            // btnClear2
+            // 
+            this.btnClear2.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnClear2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
+            this.btnClear2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear2.Location = new System.Drawing.Point(580, 129);
+            this.btnClear2.Name = "btnClear2";
+            this.btnClear2.Size = new System.Drawing.Size(56, 30);
+            this.btnClear2.TabIndex = 8;
+            this.btnClear2.Text = "Limpar";
+            this.tip.SetToolTip(this.btnClear2, "Limpar números sorteados");
+            this.btnClear2.UseVisualStyleBackColor = false;
+            this.btnClear2.Click += new System.EventHandler(this.btnClear2_Click);
             // 
             // rbRandom
             // 
@@ -204,9 +222,10 @@
             // 
             // aMaximum
             // 
-            this.aMaximum.BackColor = System.Drawing.Color.DarkOrange;
+            this.aMaximum.BackColor = System.Drawing.Color.Orange;
+            this.aMaximum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aMaximum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aMaximum.Location = new System.Drawing.Point(527, 49);
+            this.aMaximum.Location = new System.Drawing.Point(526, 49);
             this.aMaximum.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -229,9 +248,10 @@
             // 
             // aMinimum
             // 
-            this.aMinimum.BackColor = System.Drawing.Color.DarkOrange;
+            this.aMinimum.BackColor = System.Drawing.Color.Orange;
+            this.aMinimum.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aMinimum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aMinimum.Location = new System.Drawing.Point(370, 49);
+            this.aMinimum.Location = new System.Drawing.Point(366, 49);
             this.aMinimum.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -258,15 +278,17 @@
             this.lblBetween.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBetween.Location = new System.Drawing.Point(274, 51);
             this.lblBetween.Name = "lblBetween";
-            this.lblBetween.Size = new System.Drawing.Size(247, 32);
+            this.lblBetween.Size = new System.Drawing.Size(239, 32);
             this.lblBetween.TabIndex = 2;
-            this.lblBetween.Text = "Entre                   e";
+            this.lblBetween.Text = "Entre                  e";
+            this.lblBetween.Click += new System.EventHandler(this.pSorter_Click);
             // 
             // nAmount
             // 
-            this.nAmount.BackColor = System.Drawing.Color.DarkOrange;
+            this.nAmount.BackColor = System.Drawing.Color.Orange;
+            this.nAmount.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nAmount.Location = new System.Drawing.Point(133, 8);
+            this.nAmount.Location = new System.Drawing.Point(132, 8);
             this.nAmount.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -322,10 +344,26 @@
             this.Numbers.Text = "";
             this.Numbers.Width = 10;
             // 
+            // cmsOptions2
+            // 
+            this.cmsOptions2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiClearAll2});
+            this.cmsOptions2.Name = "cmsOptions2";
+            this.cmsOptions2.Size = new System.Drawing.Size(112, 26);
+            // 
+            // tsmiClearAll2
+            // 
+            this.tsmiClearAll2.Image = ((System.Drawing.Image)(resources.GetObject("tsmiClearAll2.Image")));
+            this.tsmiClearAll2.Name = "tsmiClearAll2";
+            this.tsmiClearAll2.Size = new System.Drawing.Size(111, 22);
+            this.tsmiClearAll2.Text = "Limpar";
+            this.tsmiClearAll2.Click += new System.EventHandler(this.tsmiClearAll2_Click);
+            // 
             // pPeople
             // 
-            this.pPeople.BackColor = System.Drawing.Color.Orange;
+            this.pPeople.BackColor = System.Drawing.Color.DarkOrange;
             this.pPeople.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pPeople.Controls.Add(this.btnSave);
             this.pPeople.Controls.Add(this.btnImport);
             this.pPeople.Controls.Add(this.btnClearLast);
             this.pPeople.Controls.Add(this.btnLastResult);
@@ -338,7 +376,7 @@
             this.pPeople.Location = new System.Drawing.Point(10, 39);
             this.pPeople.Name = "pPeople";
             this.pPeople.Size = new System.Drawing.Size(644, 371);
-            this.pPeople.TabIndex = 2;
+            this.pPeople.TabIndex = 0;
             this.pPeople.Visible = false;
             this.pPeople.Click += new System.EventHandler(this.pPeople_Click);
             // 
@@ -352,7 +390,7 @@
             this.btnImport.Location = new System.Drawing.Point(501, 142);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(129, 38);
-            this.btnImport.TabIndex = 3;
+            this.btnImport.TabIndex = 7;
             this.btnImport.Text = "Importar nomes";
             this.tip.SetToolTip(this.btnImport, "Importar nomes via arquivo de texto (*.txt)");
             this.btnImport.UseVisualStyleBackColor = false;
@@ -368,7 +406,7 @@
             this.btnClearLast.Location = new System.Drawing.Point(501, 98);
             this.btnClearLast.Name = "btnClearLast";
             this.btnClearLast.Size = new System.Drawing.Size(129, 38);
-            this.btnClearLast.TabIndex = 2;
+            this.btnClearLast.TabIndex = 6;
             this.btnClearLast.Text = "Apagar último";
             this.tip.SetToolTip(this.btnClearLast, "Apagar último nome da lista");
             this.btnClearLast.UseVisualStyleBackColor = false;
@@ -384,7 +422,7 @@
             this.btnLastResult.Location = new System.Drawing.Point(336, 142);
             this.btnLastResult.Name = "btnLastResult";
             this.btnLastResult.Size = new System.Drawing.Size(137, 38);
-            this.btnLastResult.TabIndex = 6;
+            this.btnLastResult.TabIndex = 3;
             this.btnLastResult.Text = "Resultado";
             this.tip.SetToolTip(this.btnLastResult, "Ver resultado do último sorteio");
             this.btnLastResult.UseVisualStyleBackColor = false;
@@ -400,7 +438,7 @@
             this.btnClear.Location = new System.Drawing.Point(336, 98);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(137, 38);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 2;
             this.btnClear.Text = "Limpar tudo";
             this.tip.SetToolTip(this.btnClear, "Apagar todos os nomes");
             this.btnClear.UseVisualStyleBackColor = false;
@@ -416,7 +454,7 @@
             this.btnRandomName.Location = new System.Drawing.Point(336, 53);
             this.btnRandomName.Name = "btnRandomName";
             this.btnRandomName.Size = new System.Drawing.Size(137, 38);
-            this.btnRandomName.TabIndex = 4;
+            this.btnRandomName.TabIndex = 1;
             this.btnRandomName.Text = "Sortear nome";
             this.tip.SetToolTip(this.btnRandomName, "Sortear um nome aleatório");
             this.btnRandomName.UseVisualStyleBackColor = false;
@@ -432,7 +470,7 @@
             this.btnAddName.Location = new System.Drawing.Point(501, 53);
             this.btnAddName.Name = "btnAddName";
             this.btnAddName.Size = new System.Drawing.Size(129, 38);
-            this.btnAddName.TabIndex = 1;
+            this.btnAddName.TabIndex = 5;
             this.btnAddName.Text = "Adicionar nome";
             this.tip.SetToolTip(this.btnAddName, "Adicionar nome à lista");
             this.btnAddName.UseVisualStyleBackColor = false;
@@ -450,7 +488,8 @@
             this.lvNames.Location = new System.Drawing.Point(12, 51);
             this.lvNames.Name = "lvNames";
             this.lvNames.Size = new System.Drawing.Size(316, 314);
-            this.lvNames.TabIndex = 7;
+            this.lvNames.TabIndex = 0;
+            this.lvNames.TabStop = false;
             this.lvNames.UseCompatibleStateImageBehavior = false;
             this.lvNames.View = System.Windows.Forms.View.Details;
             // 
@@ -490,7 +529,7 @@
             // 
             // txtName
             // 
-            this.txtName.BackColor = System.Drawing.Color.DarkOrange;
+            this.txtName.BackColor = System.Drawing.Color.Orange;
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(207, 12);
@@ -538,7 +577,7 @@
             this.btnAbout.Location = new System.Drawing.Point(0, 74);
             this.btnAbout.Name = "btnAbout";
             this.btnAbout.Size = new System.Drawing.Size(120, 38);
-            this.btnAbout.TabIndex = 2;
+            this.btnAbout.TabIndex = 0;
             this.btnAbout.TabStop = false;
             this.btnAbout.Text = "Sobre";
             this.tip.SetToolTip(this.btnAbout, "Sobre");
@@ -555,10 +594,10 @@
             this.btnUpdate.Location = new System.Drawing.Point(0, 37);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 38);
-            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.TabIndex = 0;
             this.btnUpdate.TabStop = false;
             this.btnUpdate.Text = "Atualizador";
-            this.tip.SetToolTip(this.btnUpdate, "Atualizador de software");
+            this.tip.SetToolTip(this.btnUpdate, "Atualizador de programa");
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -578,8 +617,7 @@
             this.pAbout.Location = new System.Drawing.Point(119, -1);
             this.pAbout.Name = "pAbout";
             this.pAbout.Size = new System.Drawing.Size(666, 419);
-            this.pAbout.TabIndex = 6;
-            this.pAbout.Visible = false;
+            this.pAbout.TabIndex = 0;
             this.pAbout.Click += new System.EventHandler(this.pAbout_Click);
             // 
             // picGitHub
@@ -673,14 +711,13 @@
             this.pUpdate.Location = new System.Drawing.Point(119, -1);
             this.pUpdate.Name = "pUpdate";
             this.pUpdate.Size = new System.Drawing.Size(666, 419);
-            this.pUpdate.TabIndex = 7;
-            this.pUpdate.Visible = false;
+            this.pUpdate.TabIndex = 0;
             this.pUpdate.Click += new System.EventHandler(this.pUpdate_Click);
             // 
             // picGif
             // 
             this.picGif.Image = ((System.Drawing.Image)(resources.GetObject("picGif.Image")));
-            this.picGif.Location = new System.Drawing.Point(448, 85);
+            this.picGif.Location = new System.Drawing.Point(445, 85);
             this.picGif.Name = "picGif";
             this.picGif.Size = new System.Drawing.Size(40, 38);
             this.picGif.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -713,7 +750,7 @@
             this.btnUptoDate.Size = new System.Drawing.Size(221, 38);
             this.btnUptoDate.TabIndex = 3;
             this.btnUptoDate.Text = "Verificar atualizações";
-            this.tip.SetToolTip(this.btnUptoDate, "Verificar atualização");
+            this.tip.SetToolTip(this.btnUptoDate, "Verificar atualização de programa");
             this.btnUptoDate.UseVisualStyleBackColor = false;
             this.btnUptoDate.Click += new System.EventHandler(this.btnUptoDate_Click);
             // 
@@ -739,36 +776,21 @@
             this.lblCVersion.Text = "Versão atual: 1.0";
             this.lblCVersion.Click += new System.EventHandler(this.pUpdate_Click);
             // 
-            // btnClear2
+            // btnSave
             // 
-            this.btnClear2.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnClear2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
-            this.btnClear2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear2.Location = new System.Drawing.Point(580, 129);
-            this.btnClear2.Name = "btnClear2";
-            this.btnClear2.Size = new System.Drawing.Size(56, 30);
-            this.btnClear2.TabIndex = 8;
-            this.btnClear2.Text = "Limpar";
-            this.tip.SetToolTip(this.btnClear2, "Limpar números sorteados");
-            this.btnClear2.UseVisualStyleBackColor = false;
-            this.btnClear2.Click += new System.EventHandler(this.btnClear2_Click);
-            // 
-            // cmsOptions2
-            // 
-            this.cmsOptions2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiClearAll2});
-            this.cmsOptions2.Name = "cmsOptions2";
-            this.cmsOptions2.Size = new System.Drawing.Size(112, 26);
-            // 
-            // tsmiClearAll2
-            // 
-            this.tsmiClearAll2.Image = ((System.Drawing.Image)(resources.GetObject("tsmiClearAll2.Image")));
-            this.tsmiClearAll2.Name = "tsmiClearAll2";
-            this.tsmiClearAll2.Size = new System.Drawing.Size(111, 22);
-            this.tsmiClearAll2.Text = "Limpar";
-            this.tsmiClearAll2.Click += new System.EventHandler(this.tsmiClearAll2_Click);
+            this.btnSave.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(336, 186);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(137, 38);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Salvar";
+            this.tip.SetToolTip(this.btnSave, "Salvar último sorteio");
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmSorter
             // 
@@ -779,9 +801,9 @@
             this.Controls.Add(this.btnSorter);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAbout);
-            this.Controls.Add(this.pSorter);
             this.Controls.Add(this.pUpdate);
             this.Controls.Add(this.pAbout);
+            this.Controls.Add(this.pSorter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -795,6 +817,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.aMaximum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMinimum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nAmount)).EndInit();
+            this.cmsOptions2.ResumeLayout(false);
             this.pPeople.ResumeLayout(false);
             this.pPeople.PerformLayout();
             this.cmsOptions.ResumeLayout(false);
@@ -805,7 +828,6 @@
             this.pUpdate.ResumeLayout(false);
             this.pUpdate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGif)).EndInit();
-            this.cmsOptions2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -860,6 +882,7 @@
         private System.Windows.Forms.Button btnClear2;
         private System.Windows.Forms.ContextMenuStrip cmsOptions2;
         private System.Windows.Forms.ToolStripMenuItem tsmiClearAll2;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
