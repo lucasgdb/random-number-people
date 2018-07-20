@@ -32,6 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSorter));
             this.pSorter = new System.Windows.Forms.Panel();
             this.cbSelect = new System.Windows.Forms.ComboBox();
+            this.pPeople = new System.Windows.Forms.Panel();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.Button();
+            this.btnClearLast = new System.Windows.Forms.Button();
+            this.btnLastResult = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnRandomName = new System.Windows.Forms.Button();
+            this.btnAddName = new System.Windows.Forms.Button();
+            this.lvNames = new System.Windows.Forms.ListView();
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cmsOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiClearAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.pNumber = new System.Windows.Forms.Panel();
             this.btnClear2 = new System.Windows.Forms.Button();
             this.rbRandom = new System.Windows.Forms.RadioButton();
@@ -47,21 +63,6 @@
             this.Numbers = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmsOptions2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiClearAll2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pPeople = new System.Windows.Forms.Panel();
-            this.btnImport = new System.Windows.Forms.Button();
-            this.btnClearLast = new System.Windows.Forms.Button();
-            this.btnLastResult = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnRandomName = new System.Windows.Forms.Button();
-            this.btnAddName = new System.Windows.Forms.Button();
-            this.lvNames = new System.Windows.Forms.ListView();
-            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cmsOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiClearAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
             this.btnSorter = new System.Windows.Forms.Button();
             this.btnAbout = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -79,15 +80,14 @@
             this.lblCBuild = new System.Windows.Forms.Label();
             this.lblCVersion = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnSave = new System.Windows.Forms.Button();
             this.pSorter.SuspendLayout();
+            this.pPeople.SuspendLayout();
+            this.cmsOptions.SuspendLayout();
             this.pNumber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aMaximum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMinimum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nAmount)).BeginInit();
             this.cmsOptions2.SuspendLayout();
-            this.pPeople.SuspendLayout();
-            this.cmsOptions.SuspendLayout();
             this.pAbout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -125,6 +125,213 @@
             this.cbSelect.Size = new System.Drawing.Size(121, 24);
             this.cbSelect.TabIndex = 0;
             this.cbSelect.SelectedIndexChanged += new System.EventHandler(this.cbSelect_SelectedIndexChanged);
+            // 
+            // pPeople
+            // 
+            this.pPeople.BackColor = System.Drawing.Color.DarkOrange;
+            this.pPeople.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pPeople.Controls.Add(this.btnSave);
+            this.pPeople.Controls.Add(this.btnImport);
+            this.pPeople.Controls.Add(this.btnClearLast);
+            this.pPeople.Controls.Add(this.btnLastResult);
+            this.pPeople.Controls.Add(this.btnClear);
+            this.pPeople.Controls.Add(this.btnRandomName);
+            this.pPeople.Controls.Add(this.btnAddName);
+            this.pPeople.Controls.Add(this.lvNames);
+            this.pPeople.Controls.Add(this.txtName);
+            this.pPeople.Controls.Add(this.lblName);
+            this.pPeople.Location = new System.Drawing.Point(10, 39);
+            this.pPeople.Name = "pPeople";
+            this.pPeople.Size = new System.Drawing.Size(644, 371);
+            this.pPeople.TabIndex = 0;
+            this.pPeople.Visible = false;
+            this.pPeople.Click += new System.EventHandler(this.pPeople_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(336, 186);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(137, 38);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Salvar";
+            this.tip.SetToolTip(this.btnSave, "Salvar último sorteio");
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Location = new System.Drawing.Point(501, 142);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(129, 38);
+            this.btnImport.TabIndex = 7;
+            this.btnImport.Text = "Importar nomes";
+            this.tip.SetToolTip(this.btnImport, "Importar nomes via arquivo de texto (*.txt)");
+            this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnClearLast
+            // 
+            this.btnClearLast.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnClearLast.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClearLast.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnClearLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearLast.Location = new System.Drawing.Point(501, 98);
+            this.btnClearLast.Name = "btnClearLast";
+            this.btnClearLast.Size = new System.Drawing.Size(129, 38);
+            this.btnClearLast.TabIndex = 6;
+            this.btnClearLast.Text = "Apagar último";
+            this.tip.SetToolTip(this.btnClearLast, "Apagar último nome da lista");
+            this.btnClearLast.UseVisualStyleBackColor = false;
+            this.btnClearLast.Click += new System.EventHandler(this.btnClearLast_Click);
+            // 
+            // btnLastResult
+            // 
+            this.btnLastResult.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnLastResult.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLastResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnLastResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLastResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLastResult.Location = new System.Drawing.Point(336, 142);
+            this.btnLastResult.Name = "btnLastResult";
+            this.btnLastResult.Size = new System.Drawing.Size(137, 38);
+            this.btnLastResult.TabIndex = 3;
+            this.btnLastResult.Text = "Resultado";
+            this.tip.SetToolTip(this.btnLastResult, "Ver resultado do último sorteio");
+            this.btnLastResult.UseVisualStyleBackColor = false;
+            this.btnLastResult.Click += new System.EventHandler(this.btnLastResult_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(336, 98);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(137, 38);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "Limpar tudo";
+            this.tip.SetToolTip(this.btnClear, "Apagar todos os nomes");
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnRandomName
+            // 
+            this.btnRandomName.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnRandomName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRandomName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnRandomName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRandomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRandomName.Location = new System.Drawing.Point(336, 53);
+            this.btnRandomName.Name = "btnRandomName";
+            this.btnRandomName.Size = new System.Drawing.Size(137, 38);
+            this.btnRandomName.TabIndex = 1;
+            this.btnRandomName.Text = "Sortear nome";
+            this.tip.SetToolTip(this.btnRandomName, "Sortear um nome aleatório");
+            this.btnRandomName.UseVisualStyleBackColor = false;
+            this.btnRandomName.Click += new System.EventHandler(this.btnRandomName_Click);
+            // 
+            // btnAddName
+            // 
+            this.btnAddName.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnAddName.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnAddName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddName.Location = new System.Drawing.Point(501, 53);
+            this.btnAddName.Name = "btnAddName";
+            this.btnAddName.Size = new System.Drawing.Size(129, 38);
+            this.btnAddName.TabIndex = 5;
+            this.btnAddName.Text = "Adicionar nome";
+            this.tip.SetToolTip(this.btnAddName, "Adicionar nome à lista");
+            this.btnAddName.UseVisualStyleBackColor = false;
+            this.btnAddName.Click += new System.EventHandler(this.btnAddName_Click);
+            // 
+            // lvNames
+            // 
+            this.lvNames.BackColor = System.Drawing.Color.Orange;
+            this.lvNames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.name,
+            this.index});
+            this.lvNames.ContextMenuStrip = this.cmsOptions;
+            this.lvNames.FullRowSelect = true;
+            this.lvNames.GridLines = true;
+            this.lvNames.Location = new System.Drawing.Point(12, 51);
+            this.lvNames.Name = "lvNames";
+            this.lvNames.Size = new System.Drawing.Size(316, 314);
+            this.lvNames.TabIndex = 0;
+            this.lvNames.TabStop = false;
+            this.lvNames.UseCompatibleStateImageBehavior = false;
+            this.lvNames.View = System.Windows.Forms.View.Details;
+            // 
+            // name
+            // 
+            this.name.Text = "Nome";
+            this.name.Width = 238;
+            // 
+            // index
+            // 
+            this.index.Text = "Índice";
+            this.index.Width = 72;
+            // 
+            // cmsOptions
+            // 
+            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRemove,
+            this.tsmiClearAll});
+            this.cmsOptions.Name = "cmsOptions";
+            this.cmsOptions.Size = new System.Drawing.Size(140, 48);
+            // 
+            // tsmiRemove
+            // 
+            this.tsmiRemove.Image = ((System.Drawing.Image)(resources.GetObject("tsmiRemove.Image")));
+            this.tsmiRemove.Name = "tsmiRemove";
+            this.tsmiRemove.Size = new System.Drawing.Size(139, 22);
+            this.tsmiRemove.Text = "Remover";
+            this.tsmiRemove.Click += new System.EventHandler(this.tsmiRemove_Click);
+            // 
+            // tsmiClearAll
+            // 
+            this.tsmiClearAll.Image = ((System.Drawing.Image)(resources.GetObject("tsmiClearAll.Image")));
+            this.tsmiClearAll.Name = "tsmiClearAll";
+            this.tsmiClearAll.Size = new System.Drawing.Size(139, 22);
+            this.tsmiClearAll.Text = "Limpar tudo";
+            this.tsmiClearAll.Click += new System.EventHandler(this.tsmiClearAll_Click);
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.Orange;
+            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(207, 12);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(423, 31);
+            this.txtName.TabIndex = 0;
+            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(13, 10);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(188, 31);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Digite o nome:";
+            this.lblName.Click += new System.EventHandler(this.pSorter_Click);
             // 
             // pNumber
             // 
@@ -359,202 +566,12 @@
             this.tsmiClearAll2.Text = "Limpar";
             this.tsmiClearAll2.Click += new System.EventHandler(this.tsmiClearAll2_Click);
             // 
-            // pPeople
-            // 
-            this.pPeople.BackColor = System.Drawing.Color.DarkOrange;
-            this.pPeople.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pPeople.Controls.Add(this.btnSave);
-            this.pPeople.Controls.Add(this.btnImport);
-            this.pPeople.Controls.Add(this.btnClearLast);
-            this.pPeople.Controls.Add(this.btnLastResult);
-            this.pPeople.Controls.Add(this.btnClear);
-            this.pPeople.Controls.Add(this.btnRandomName);
-            this.pPeople.Controls.Add(this.btnAddName);
-            this.pPeople.Controls.Add(this.lvNames);
-            this.pPeople.Controls.Add(this.txtName);
-            this.pPeople.Controls.Add(this.lblName);
-            this.pPeople.Location = new System.Drawing.Point(10, 39);
-            this.pPeople.Name = "pPeople";
-            this.pPeople.Size = new System.Drawing.Size(644, 371);
-            this.pPeople.TabIndex = 0;
-            this.pPeople.Visible = false;
-            this.pPeople.Click += new System.EventHandler(this.pPeople_Click);
-            // 
-            // btnImport
-            // 
-            this.btnImport.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnImport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImport.Location = new System.Drawing.Point(501, 142);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(129, 38);
-            this.btnImport.TabIndex = 7;
-            this.btnImport.Text = "Importar nomes";
-            this.tip.SetToolTip(this.btnImport, "Importar nomes via arquivo de texto (*.txt)");
-            this.btnImport.UseVisualStyleBackColor = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // btnClearLast
-            // 
-            this.btnClearLast.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnClearLast.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClearLast.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnClearLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearLast.Location = new System.Drawing.Point(501, 98);
-            this.btnClearLast.Name = "btnClearLast";
-            this.btnClearLast.Size = new System.Drawing.Size(129, 38);
-            this.btnClearLast.TabIndex = 6;
-            this.btnClearLast.Text = "Apagar último";
-            this.tip.SetToolTip(this.btnClearLast, "Apagar último nome da lista");
-            this.btnClearLast.UseVisualStyleBackColor = false;
-            this.btnClearLast.Click += new System.EventHandler(this.btnClearLast_Click);
-            // 
-            // btnLastResult
-            // 
-            this.btnLastResult.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnLastResult.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLastResult.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnLastResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLastResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLastResult.Location = new System.Drawing.Point(336, 142);
-            this.btnLastResult.Name = "btnLastResult";
-            this.btnLastResult.Size = new System.Drawing.Size(137, 38);
-            this.btnLastResult.TabIndex = 3;
-            this.btnLastResult.Text = "Resultado";
-            this.tip.SetToolTip(this.btnLastResult, "Ver resultado do último sorteio");
-            this.btnLastResult.UseVisualStyleBackColor = false;
-            this.btnLastResult.Click += new System.EventHandler(this.btnLastResult_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(336, 98);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(137, 38);
-            this.btnClear.TabIndex = 2;
-            this.btnClear.Text = "Limpar tudo";
-            this.tip.SetToolTip(this.btnClear, "Apagar todos os nomes");
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnRandomName
-            // 
-            this.btnRandomName.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnRandomName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRandomName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnRandomName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRandomName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRandomName.Location = new System.Drawing.Point(336, 53);
-            this.btnRandomName.Name = "btnRandomName";
-            this.btnRandomName.Size = new System.Drawing.Size(137, 38);
-            this.btnRandomName.TabIndex = 1;
-            this.btnRandomName.Text = "Sortear nome";
-            this.tip.SetToolTip(this.btnRandomName, "Sortear um nome aleatório");
-            this.btnRandomName.UseVisualStyleBackColor = false;
-            this.btnRandomName.Click += new System.EventHandler(this.btnRandomName_Click);
-            // 
-            // btnAddName
-            // 
-            this.btnAddName.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnAddName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddName.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnAddName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddName.Location = new System.Drawing.Point(501, 53);
-            this.btnAddName.Name = "btnAddName";
-            this.btnAddName.Size = new System.Drawing.Size(129, 38);
-            this.btnAddName.TabIndex = 5;
-            this.btnAddName.Text = "Adicionar nome";
-            this.tip.SetToolTip(this.btnAddName, "Adicionar nome à lista");
-            this.btnAddName.UseVisualStyleBackColor = false;
-            this.btnAddName.Click += new System.EventHandler(this.btnAddName_Click);
-            // 
-            // lvNames
-            // 
-            this.lvNames.BackColor = System.Drawing.Color.Orange;
-            this.lvNames.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.name,
-            this.index});
-            this.lvNames.ContextMenuStrip = this.cmsOptions;
-            this.lvNames.FullRowSelect = true;
-            this.lvNames.GridLines = true;
-            this.lvNames.Location = new System.Drawing.Point(12, 51);
-            this.lvNames.Name = "lvNames";
-            this.lvNames.Size = new System.Drawing.Size(316, 314);
-            this.lvNames.TabIndex = 0;
-            this.lvNames.TabStop = false;
-            this.lvNames.UseCompatibleStateImageBehavior = false;
-            this.lvNames.View = System.Windows.Forms.View.Details;
-            // 
-            // name
-            // 
-            this.name.Text = "Nome";
-            this.name.Width = 238;
-            // 
-            // index
-            // 
-            this.index.Text = "Índice";
-            this.index.Width = 72;
-            // 
-            // cmsOptions
-            // 
-            this.cmsOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiRemove,
-            this.tsmiClearAll});
-            this.cmsOptions.Name = "cmsOptions";
-            this.cmsOptions.Size = new System.Drawing.Size(140, 48);
-            // 
-            // tsmiRemove
-            // 
-            this.tsmiRemove.Image = ((System.Drawing.Image)(resources.GetObject("tsmiRemove.Image")));
-            this.tsmiRemove.Name = "tsmiRemove";
-            this.tsmiRemove.Size = new System.Drawing.Size(139, 22);
-            this.tsmiRemove.Text = "Remover";
-            this.tsmiRemove.Click += new System.EventHandler(this.tsmiRemove_Click);
-            // 
-            // tsmiClearAll
-            // 
-            this.tsmiClearAll.Image = ((System.Drawing.Image)(resources.GetObject("tsmiClearAll.Image")));
-            this.tsmiClearAll.Name = "tsmiClearAll";
-            this.tsmiClearAll.Size = new System.Drawing.Size(139, 22);
-            this.tsmiClearAll.Text = "Limpar tudo";
-            this.tsmiClearAll.Click += new System.EventHandler(this.tsmiClearAll_Click);
-            // 
-            // txtName
-            // 
-            this.txtName.BackColor = System.Drawing.Color.Orange;
-            this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(207, 12);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(423, 31);
-            this.txtName.TabIndex = 0;
-            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtName_KeyDown);
-            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(13, 10);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(188, 31);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Digite o nome:";
-            this.lblName.Click += new System.EventHandler(this.pSorter_Click);
-            // 
             // btnSorter
             // 
             this.btnSorter.BackColor = System.Drawing.Color.OrangeRed;
             this.btnSorter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSorter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnSorter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
+            this.btnSorter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.btnSorter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSorter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSorter.Location = new System.Drawing.Point(0, 0);
@@ -571,7 +588,8 @@
             // 
             this.btnAbout.BackColor = System.Drawing.Color.OrangeRed;
             this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnAbout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
+            this.btnAbout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.btnAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbout.Location = new System.Drawing.Point(0, 74);
@@ -588,7 +606,8 @@
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.OrangeRed;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
+            this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrange;
+            this.btnUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Orange;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(0, 37);
@@ -625,14 +644,16 @@
             this.picGitHub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.picGitHub.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picGitHub.Image = ((System.Drawing.Image)(resources.GetObject("picGitHub.Image")));
-            this.picGitHub.Location = new System.Drawing.Point(622, 378);
+            this.picGitHub.Location = new System.Drawing.Point(632, 383);
             this.picGitHub.Name = "picGitHub";
-            this.picGitHub.Size = new System.Drawing.Size(30, 30);
+            this.picGitHub.Size = new System.Drawing.Size(25, 25);
             this.picGitHub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picGitHub.TabIndex = 5;
             this.picGitHub.TabStop = false;
             this.tip.SetToolTip(this.picGitHub, "GitHub");
             this.picGitHub.Click += new System.EventHandler(this.picGitHub_Click);
+            this.picGitHub.MouseEnter += new System.EventHandler(this.picGitHub_MouseEnter);
+            this.picGitHub.MouseLeave += new System.EventHandler(this.picGitHub_MouseLeave);
             // 
             // lblEmail
             // 
@@ -776,22 +797,6 @@
             this.lblCVersion.Text = "Versão atual: 1.0";
             this.lblCVersion.Click += new System.EventHandler(this.pUpdate_Click);
             // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.OrangeRed;
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Orange;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(336, 186);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(137, 38);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Salvar";
-            this.tip.SetToolTip(this.btnSave, "Salvar último sorteio");
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // frmSorter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -801,9 +806,9 @@
             this.Controls.Add(this.btnSorter);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAbout);
-            this.Controls.Add(this.pUpdate);
             this.Controls.Add(this.pAbout);
             this.Controls.Add(this.pSorter);
+            this.Controls.Add(this.pUpdate);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -812,15 +817,15 @@
             this.Text = "Sorteador de Números e Pessoas";
             this.Load += new System.EventHandler(this.frmSorter_Load);
             this.pSorter.ResumeLayout(false);
+            this.pPeople.ResumeLayout(false);
+            this.pPeople.PerformLayout();
+            this.cmsOptions.ResumeLayout(false);
             this.pNumber.ResumeLayout(false);
             this.pNumber.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.aMaximum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aMinimum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nAmount)).EndInit();
             this.cmsOptions2.ResumeLayout(false);
-            this.pPeople.ResumeLayout(false);
-            this.pPeople.PerformLayout();
-            this.cmsOptions.ResumeLayout(false);
             this.pAbout.ResumeLayout(false);
             this.pAbout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGitHub)).EndInit();

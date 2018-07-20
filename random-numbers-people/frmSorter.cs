@@ -12,18 +12,23 @@ namespace random_numbers
             SelectPanel(pSorter);
         }
 
-        int BCurrent = 2;
+        int BCurrent = 3;
         string lastSorter = null;
         int amountPeople = 0;
 
         void SelectPanel(System.Windows.Forms.Panel panel)
         {
             System.Windows.Forms.Panel[] panels = { pSorter, pUpdate, pAbout };
+            System.Windows.Forms.Button[] btns = { btnSorter, btnUpdate, btnAbout };
             for (int i = 0; i < panels.Length; i++)
                 if (panels[i] == panel && !panel.Visible)
-                    panel.Visible = true;
+                {
+                    panel.Visible = true; btns[i].BackColor = System.Drawing.Color.Orange;
+                }
                 else if (panels[i] != panel && panels[i].Visible == true)
-                    panels[i].Visible = false;
+                {
+                    panels[i].Visible = false; btns[i].BackColor = System.Drawing.Color.OrangeRed;
+                }
             panel.Select();
         }
 
@@ -349,6 +354,18 @@ namespace random_numbers
             }
             else System.Windows.Forms.MessageBox.Show("Nenhum sorteio foi realizado ainda!", "Erro", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             pSorter.Select();
+        }
+
+        private void picGitHub_MouseEnter(object sender, System.EventArgs e)
+        {
+            picGitHub.Location = new System.Drawing.Point(picGitHub.Location.X - 1, picGitHub.Location.Y - 1);
+            picGitHub.Size = new System.Drawing.Size(picGitHub.Size.Width + 2, picGitHub.Size.Height + 2);
+        }
+
+        private void picGitHub_MouseLeave(object sender, System.EventArgs e)
+        {
+            picGitHub.Location = new System.Drawing.Point(picGitHub.Location.X + 1, picGitHub.Location.Y + 1);
+            picGitHub.Size = new System.Drawing.Size(picGitHub.Size.Width - 2, picGitHub.Size.Height - 2);
         }
     }
 }
